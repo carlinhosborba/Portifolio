@@ -1,63 +1,542 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f9;
-    color: #333;
-  }
-  
-  header {
-    background: #333;
-    color: #fff;
-    padding: 10px 20px;
-  }
-  
-  header h1 {
-    margin: 0;
-  }
-  
-  nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-  }
-  
-  nav ul li {
-    margin-right: 15px;
-  }
-  
-  nav ul li a {
-    color: #fff;
-    text-decoration: none;
-  }
-  
-  main {
-    padding: 20px;
-  }
-  
-  footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    margin-top: 20px;
-  }
-  
-  #game input {
-    padding: 10px;
-    margin-right: 5px;
-  }
-  
-  #attempts {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-  }
-  
-  #attempts li {
-    padding: 10px;
-    background: #e9ecef;
-    margin-bottom: 5px;
-    border-radius: 5px;
-  }
-  
+  font-family: "Rubik", "Audiowide", monospace;
+  font-size: 25px;
+  background-color: #000011;
+  text-align: center;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  transition: background-color 0.5s ease;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 11.688rem;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translate(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.loading-container {
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000011;
+  z-index: 1000;
+}
+
+.name {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font: 30px "Audiowide";
+}
+
+.loading-bar {
+  width: 900px;
+  height: 10px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background-color: #0549a3;
+  transition: width 0.5s ease;
+}
+
+.navbar-container {
+  width: 100%;
+  height: 7.5rem;
+  background-color: #000011;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.navbar {
+  width: 100%;
+  height: 120px;
+  background-color: #000011;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  border-bottom: 2px solid #0549a3;
+  transition: background-color 0.5s ease, border-bottom 0.5s ease;
+}
+
+.navbar .logo {
+  font-family: "Audiowide";
+  float: left;
+  display: block;
+  margin-left: 48px;
+  margin-top: 27px;
+  color: #fff;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: underline;
+  text-decoration-color: #0549a3;
+  text-underline-offset: 8px;
+  font-size: 25px;
+  transition: color 0.5s ease;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  margin: 35px;
+  margin-left: 300px;
+  overflow: hidden;
+}
+
+.navbar .nav-links li {
+  float: left;
+  border: 2px solid #0549a3;
+  border-radius: 7px;
+  margin-right: 50px;
+  transition: border 0.5s ease;
+}
+
+.navbar .nav-links li a {
+  font-family: "Audiowide";
+  display: block;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-size: 18px;
+  opacity: 0.8;
+  transition: color 0.5s ease;
+}
+
+.navbar .nav-links li:hover {
+  transform: scale(1.1);
+  border: 2px solid #0549a3;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.navbar .nav-links li.selected a {
+  opacity: 1;
+  box-shadow: 0 0 20px #0549a3;
+  transition: box-shadow 0.5s ease;
+}
+
+.navbar img.theme-icon {
+  width: 24px;
+  height: 24px;
+  margin-top: 10px;
+  margin-left: -120px;
+  vertical-align: middle;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  opacity: 1;
+}
+
+.main-content {
+  padding-top: 140px;
+  display: flex;
+  margin-top: -130px;
+  width: 100%;
+  height: 100%;
+  color: #ffffff;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+}
+
+.container-sobre {
+  width: 80%;
+  height: 30rem;
+  margin: 15rem;
+  margin-top: 7rem;
+  text-align: left;
+}
+
+
+.container-habilidades {
+  width: 80%;
+  height: 25rem;
+  margin: 0 auto;
+  margin-top: 7rem;
+  text-align: center;
+}
+
+.container-projetos {
+  width: 80%;
+  height: 34.5rem;
+  margin: 0 auto;
+  margin-top: 7rem;
+  text-align: center;
+}
+
+.container-projetos a img {
+  transition: transform 0.3s ease;
+  box-shadow: 0.3s ease;
+}
+
+.container-projetos a img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(35, 5, 235, 0.5);
+}
+
+.container-contatos a img {
+  transition: transform 0.3s ease;
+  box-shadow: 0.3s ease;
+}
+
+.container-contatos a img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(35, 5, 235, 0.5);
+}
+
+.container-contato {
+  width: 80%;
+  height: 25rem;
+  margin: 0 auto;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+#contato {
+  scroll-margin-top: -10rem;
+}
+
+
+.html-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: -60rem;
+  margin-top: 3rem;
+}
+
+.css-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: -20rem;
+  margin-top: -12.7rem;
+}
+
+.js-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: 20rem;
+  margin-top: -12.7rem;
+}
+
+.py-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: 60rem;
+  margin-top: -12.7rem;
+}
+
+.linkedin-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: -60rem;
+  margin-top: 3rem;
+}
+
+.email-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: -20rem;
+  margin-top: -9rem;
+}
+
+.instagram-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: 20rem;
+  margin-top: -8.5rem;
+}
+
+.github-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: 60rem;
+  margin-top: -9rem;
+}
+
+.html-icon {
+  width: 150px;
+  height: 150px;
+  margin-left: -60rem;
+  margin-top: 1rem;
+}
+
+.css-icon {
+  width: 150px;
+  height: 150px;
+  margin-left: -20rem;
+  margin-top: 1rem;
+}
+
+.js-icon {
+  width: 150px;
+  height: 150px;
+  margin-left: 20rem;
+  margin-top: 1rem;
+}
+
+.py-icon {
+  width: 150px;
+  height: 150px;
+  margin-left: 60rem;
+  margin-top: 1rem;
+}
+
+.linkedin-icon {
+  width: 90px;
+  height: 90px;
+  margin-top: 1rem;
+  margin-left: -60rem;
+}
+
+.email-icon {
+  width: 110px;
+  height: 80px;
+  margin-top: 1rem;
+  margin-left: -20rem;
+}
+
+.instagram-icon {
+  width: 90px;
+  height: 90px;
+  margin-top: 1rem;
+  margin-left: 20rem;
+}
+
+.whatsapp-icon {
+  width: 90px;
+  height: 90px;
+  margin-top: 1rem;
+  margin-left: 60rem;
+}
+
+.sobre-mim-title {
+  font-family: "Rubik";
+  color: white;
+  text-align: left;
+  margin-left: -60px;
+  margin-top: 40px;
+}
+
+.habilidades-title {
+  font-family: "Rubik";
+  color: white;
+  text-align: center;
+}
+
+.projetos-title {
+  font-family: "Rubik";
+  color: white;
+  text-align: center;
+}
+
+.contato-title {
+  margin-top: -5rem;
+  font-family: "Rubik";
+  color: white;
+  text-align: center;
+}
+
+.contato-subtitle {
+  font-family: monospace;
+  font-size: 22px;
+  line-height: 1.5;
+  color: white;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #0549a3;
+  width: 31rem;
+  margin-left: -60px;
+}
+
+.small-space {
+  display: block;
+  height: 10px;
+}
+
+.sobre-mim {
+  font-family: monospace;
+  font-size: 25px;
+  text-align: left;
+  margin-left: -62px;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+.img-carlos {
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 13%;
+  margin-top: -400px;
+  margin-left: 40rem;
+  align-self: center;
+}
+
+.healnet-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: -54rem;
+  margin-top: 1rem;
+}
+
+.jogo-forca-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: -0.5rem;
+  margin-top: -4rem;
+}
+
+.jogo-senha-texto {
+  font-family: "Audiowide";
+  color: white;
+  font-size: 24px;
+  margin-left: 55.5rem;
+  margin-top: -3.8rem;
+}
+
+.healnet-img {
+  width: 342px;
+  height: 185px;
+  border-radius: 10px;
+  margin-top: 4rem;
+  margin-left: -54.5rem;
+}
+
+.jogo-da-forca-img {
+  width: 342px;
+  height: 185px;
+  border-radius: 10px;
+  margin-top: -30rem;
+  margin-left: -0.5rem;
+  margin-bottom: 4.9rem;
+}
+
+.jogo-senha-img {
+  width: 342px;
+  height: 190px;
+  border-radius: 10px;
+  margin-top: -20rem;
+  margin-left: 53.5rem;
+  margin-bottom: 4.9rem;
+}
+
+body.light-mode {
+  background-color: #e8e8e8;
+  color: #000000;
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+body.light-mode p {
+  color: black;
+  transition: color 0.5s ease;
+}
+
+body.light-mode h2 {
+  color: black;
+  transition: color 0.5s ease;
+}
+
+body.light-mode .navbar {
+  background-color: #e8e8e8;
+  border-bottom: 2px solid #0549a3;
+  transition: background-color 0.5s ease, border-bottom 0.5s ease;
+}
+
+body.light-mode .navbar .logo {
+  color: #000000;
+  transition: color 0.5s ease;
+}
+
+body.light-mode .navbar .nav-links li {
+  border: 1px solid #0549a3;
+  transition: border 0.5s ease;
+}
+
+body.light-mode .navbar .nav-links li a {
+  color: #000000;
+  transition: color 0.5s ease;
+}
+
+body.light-mode .navbar .nav-links li.selected a {
+  box-shadow: 0 0 20px rgba(35, 5, 235, 1);
+  transition: box-shadow 0.5s ease;
+}
+
+.social-icon {
+  filter: invert(0);
+  transition: filter 0.5s ease;
+}
+
+.social-icon:hover {
+  filter: invert(0);
+  transition: filter 0.5s ease;
+}
+
+body.light-mode .social-icon {
+  filter: invert(0);
+  transition: filter 0.5s ease;
+}
+
+body.light-mode .social-icon:hover {
+  filter: invert(100%);
+  transition: filter 0.5s ease;
+}
+
+body.light-mode .linkedin-icon,
+body.light-mode .email-icon,
+body.light-mode .instagram-icon,
+body.light-mode .whatsapp-icon {
+  filter: invert(100%);
+}

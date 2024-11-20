@@ -1,39 +1,156 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Meu Portfólio</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <h1>Meu Portfólio</h1>
-    <nav>
-      <ul>
-        <li><a href="#about">Sobre Mim</a></li>
-        <li><a href="#projects">Projetos</a></li>
-        <li><a href="game.html">Jogo Senha</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section id="about">
-      <h2>Sobre Mim</h2>
-      <p>Olá, prazer! Me chamo Carlos Borba sou pernambucano tenho 30 anos. Formado em Direito desde 2016 pela FACET - Faculdade de Ciencias de Timbaúba.
-          Atualmente estou graduando em Sistemas para Internet pela UNICAP - Universidade Católica de Pernambu. Sempre fui apaixonado por tecnologia 
-          e um desenvolvedor web freelancer apaixonado por criar experiências incríveis na web!</p>
-    </section>
-    <section id="projects">
-      <h2>Meus Projetos</h2>
-      <ul>
-        <li><a href="#">Projeto 1</a></li>
-        <li><a href="#">Projeto 2</a></li>
-      </ul>
-    </section>
-  </main>
-  <footer>
-    <p>Feito por Carlos Borba</p>
-  </footer>
-</body>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carlos Borba</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+    <link
+      rel="shortcut icon"
+      href="midias/profile-pic.png"
+      type="logo-site"
+    />
+  </head>
+  <body>
+    <div class="loading-container" id="loading-container">
+      <p class="name">Carlos Borba</p>
+      <div class="loading-bar">
+        <div class="progress"></div>
+      </div>
+    </div>
+
+    <div class="main-content" id="main-content">
+      <div class="navbar-container">
+        <nav class="navbar">
+          <a href="index.html"><div class="logo">Carlos Borba</div></a>
+          <ul class="nav-links">
+            <li><a href="#sobre">Sobre mim</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#projetos">Projetos</a></li>
+            <li><a href="#contato">Contato</a></li>
+            <a href="#" id="toggle-theme"
+              ><img
+                src="midias/sun.png.png"
+                alt="Toggle Theme"
+                class="theme-icon"
+            /></a>
+          </ul>
+        </nav>
+      </div>
+      <section id="sobre" class="fade-in">
+        <div class="container-sobre">
+          <h2 class="sobre-mim-title">SOBRE MIM</h2>
+          <span class="small-space"></span>
+          <hr />
+          <span class="small-space"></span>
+          <p class="sobre-mim">
+            Olá, prazer! Me chamo Carlos Borba<br /> 
+            sou pernambucano tenho 30 anos. <br />
+            Formado em Direito desde 2016 pela <br />
+            FACET - Faculdade de Ciências de<br /> 
+            Timbaúba. Atualmente estou graduando <br />
+            em Sistemas para Internet pela  <br />
+            UNICAP - Universidade Católica de <br />
+            Pernambuco. Sempre fui apaixonado <br />
+            por tecnologia e um desenvolvedor <br />
+            web freelancer apaixonado por criar<br />
+            experiências incríveis na web!
+          </p>
+          <img
+            class="img-carlos"
+            src="midias/profile-pic.png"
+            alt="Foto Carlos"
+          />
+        </div>
+      </section>
+      <section id="academico" class="fade-in">
+        <div class="container-academico">
+          <div class="academico-dados">
+          </div>
+        </div>
+      </section>
+      <section id="habilidades" class="fade-in">
+        <div class="container-habilidades">
+          <h2 class="habilidades-title">HABILIDADES</h2>
+          <p class="html-texto">HTML</p>
+          <img class="html-icon" src="midias/Group 3.png" alt="ícone html" />
+          <p class="css-texto">CSS</p>
+          <img class="css-icon" src="midias/Group 2.png" alt="ícone css" />
+          <p class="js-texto">JavaScript</p>
+          <img class="js-icon" src="midias/js.png" alt="ícone js" />
+          <p class="py-texto">Python</p>
+          <img class="py-icon" src="midias/Group 1.png" alt="ícone python" />
+        </div>
+      </section>
+      <section id="projetos" class="fade-in">
+        <div class="container-projetos">
+          <h2 class="projetos-tilte">PROJETOS</h2>
+          <a href="https://healnet-ipw.vercel.app/" target="_blank"
+            ><img class="healnet-img" src="midias/healnet.png" alt="Healnet"
+          /></a>
+          <p class="healnet-texto">Healnet</p>
+          <a
+            href="https://atividades-pw-2024-2-g0jkzid5l-carlos-borbas-projects.vercel.app/Atividade03-2-JogodaForca/"
+            target="_blank"
+            ><img
+              class="jogo-da-forca-img"
+              src="midias/Jogo da forca.png"
+              alt="Jogo da Forca"
+          /></a>
+          <p class="jogo-forca-texto">Jogo da Forca</p>
+          <a
+            href="https://exercicios-pw.vercel.app/jogo%20da%20senha/index.html"
+            target="_blank"
+            ><img
+              class="jogo-senha-img"
+              src="midias/jogodasenha.png"
+              alt="Jogo da Senha"
+          /></a>
+          <p class="jogo-senha-texto">Jogo da Senha (Bulls and Cows)</p>
+        </div>
+      </section>
+      <section id="contato" class="fade-in">
+        <div class="container-contato">
+          <h2 class="contato-title">CONTATO</h2>
+          <p class="contato-subtitle">
+            O que achou do meu trabalho? <br />
+            Entre em contato comigo agora mesmo!<br />
+            Selecione algum dos contatos abaixo:
+          </p>
+          <p class="linkedin-texto">LinkedIn</p>
+          <a href="https://www.linkedin.com/in/carlos-borba-770b71169/" target="_blank"
+            ><img
+              class="linkedin-icon social-icon"
+              src="midias/linkedin.png"
+              alt="ícone linkedin"
+          /></a>
+          <p class="email-texto">E-mail</p>
+          <a href="mailto:carlinhos.borba@hotmail.com"
+            ><img
+              class="email-icon social-icon"
+              src="midias/email.png"
+              alt="ícone email"
+          /></a>
+          <p class="instagram-texto">instagram</p>
+          <a href="https://www.instagram.com/carlinhosborba/" target="_blank"
+            ><img
+              class="instagram-icon social-icon"
+              src="midias/instagram.png"
+              alt="ícone instagram"
+          /></a>
+          <p class="github-texto">Whatsapp</p>
+          <a
+            href="https://wa.me/5581999208186?text=Ol%C3%A1%20Carlos,%20vi%20seu%20site%20e%20gostaria%20de%20fazer%20um%20or%C3%A7amento%20com%20voc%C3%AA%20!
+          "
+            target="_blank"
+            ><img
+              class="whatsapp-icon social-icon"
+              src="midias/Vector (2).png"
+              alt="ícone whatsapp"
+          /></a>
+        </div>
+      </section>
+    </div>
+  </body>
 </html>
